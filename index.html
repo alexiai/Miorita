@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Miorița — Restaurant moldovenesc · Bacău</title>
+    <meta name="description" content="Miorița, restaurant moldovenesc din Bacău. „Pe-un picior de plai, pe-o gură de rai...”">
+    <meta name="theme-color" content="#0d0a08">
+    <meta property="og:title" content="Miorița — Restaurant moldovenesc · Bacău">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://miorita.ro/">
+    <link rel="icon" href="assets/ornament.png" type="image/png">
+    <link rel="preload" as="image" href="assets/miorita-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@400;500&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#continut">Treci la conținut</a>
+
+<!-- Header: never changes. The empty slot only reserves the spot where the title lands. -->
+<header class="nav" id="nav">
+    <div class="nav__bar">
+        <span class="nav__slot" id="nav-slot" aria-hidden="true"></span>
+        <nav aria-label="Navigare principală">
+            <ul class="nav__list" id="nav-list">
+                <li><a href="#galerie">GALERIE</a></li>
+                <li><a href="#meniu">LA MASĂ</a></li>
+                <li><a href="#evenimente">EVENIMENTE</a></li>
+                <li><a href="revelion.html">REVELION 2027</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- The title itself: starts over the hero slot, glides up into the header while scrolling (script.js) -->
+<a class="brand" id="brand" href="#top" aria-label="Miorița — înapoi sus">
+    <img class="logo-img" src="assets/miorita-logo.png" width="2160" height="835" alt="Miorița">
+</a>
+
+<main id="continut">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="top" data-nav="dark" aria-label="Prezentare">
+        <img class="hero__bg" src="assets/up.jpg" alt="Oi cu fața neagră pe o pajiște de munte, cu stânci și culmi în depărtare" fetchpriority="high" decoding="async">
+        <div class="hero__shade" aria-hidden="true"></div>
+
+        <div class="frame frame--left" aria-hidden="true"></div>
+        <div class="frame frame--right" aria-hidden="true"></div>
+        <div class="frame frame--bottom band" aria-hidden="true"><span class="band__strip"></span></div>
+
+        <div class="hero__main">
+            <p class="tagline">
+                <img class="orn" src="assets/ornament.png" width="48" height="48" alt="">
+                <span>RESTAURANT MOLDOVENESC · BACĂU</span>
+                <img class="orn" src="assets/ornament.png" width="48" height="48" alt="">
+            </p>
+            <h1 class="hero__title">
+                <span class="hero__slot" id="hero-slot"></span>
+                <span class="visually-hidden">Miorița — restaurant moldovenesc în Bacău</span>
+            </h1>
+        </div>
+
+        <div class="hero__cta">
+            <a class="hero__btn hero__btn--solid" href="#meniu">
+                <span>Descoperă meniul</span>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 15 15 3M5.5 3H15v9.5" stroke="currentColor" stroke-width="1.2"/></svg>
+            </a>
+            <a class="hero__btn hero__btn--line" href="#contact">
+                <span>Rezervă o masă</span>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 15 15 3M5.5 3H15v9.5" stroke="currentColor" stroke-width="1.2"/></svg>
+            </a>
+        </div>
+
+        <div class="phrase">
+            <img class="orn" src="assets/ornament.png" width="48" height="48" alt="">
+            <p>„Pe-un picior de plai, pe-o gură de rai...”</p>
+            <img class="orn" src="assets/ornament.png" width="48" height="48" alt="">
+        </div>
+    </section>
+
+    <!-- ================= BUN VENIT ================= -->
+    <section class="intro" data-nav="light" aria-labelledby="intro-titlu">
+        <div class="intro__grid">
+            <div class="intro__mark">
+                <img src="assets/ornament.png" width="80" height="120" alt="">
+                <p class="eyebrow">Un gând de bun venit</p>
+            </div>
+            <div>
+                <h2 class="intro__title" id="intro-titlu">Sunt locuri în care ajungi.<br>Și gusturi la care te întorci.</h2>
+                <p class="lead">
+                    Din 1977, Restaurantul Miorița face parte din povestea gastronomică a Bacăului, păstrând vie dragostea pentru bucătăria românească și pentru mesele care adună oamenii împreună. De-a lungul anilor, a devenit un nume cunoscut în oraș, un loc în care tradiția se regăsește în gustul mâncărurilor, în bucuria unei mese savuroase și în plăcerea de a reveni acolo unde te simți bine.
+                </p>
+                <p class="lead">
+                    La Miorița, credem că mâncarea bună înseamnă mai mult decât un preparat așezat pe masă. Ne inspirăm din bogăția bucătăriei românești și din tradițiile culinare moldovenești, aducând mai aproape de oaspeții noștri acele gusturi familiare care ne amintesc de mesele de acasă, de rețetele îndrăgite și de momentele petrecute alături de cei dragi.
+                </p>
+                <p class="lead">
+                    Pentru noi, tradiția nu înseamnă doar să păstrăm gusturile de odinioară, ci și să le ducem mai departe, din generație în generație, prin fiecare masă servită și fiecare oaspete care ne alege.
+                </p>
+            </div>
+        </div>
+        <div class="band band--rule" aria-hidden="true"><span class="band__strip"></span></div>
+    </section>
+
+    <!-- ================= GALERIE ================= -->
+    <section class="section section--gallery" id="galerie" data-nav="light" aria-labelledby="galerie-titlu">
+        <h2 class="section__title" id="galerie-titlu">
+            <img class="orn" src="assets/ornament.png" width="48" height="48" alt="">
+            <span>Galerie</span>
+            <img class="orn" src="assets/ornament.png" width="48" height="48" alt="">
+        </h2>
+
+        <!-- Photos are gallery1.jpg … gallery20.jpg in assets/gallery/ (see GALLERY_COUNT in script.js) -->
+        <div class="film">
+            <div class="film__scroller" tabindex="0" role="region" aria-label="Galerie foto, rândul 1 — derulează orizontal">
+                <ul class="film__row"></ul>
+            </div>
+            <div class="band band--rule" aria-hidden="true"><span class="band__strip"></span></div>
+            <div class="film__scroller" tabindex="0" role="region" aria-label="Galerie foto, rândul 2 — derulează orizontal">
+                <ul class="film__row"></ul>
+            </div>
+            <div class="band band--rule" aria-hidden="true"><span class="band__strip"></span></div>
+            <div class="film__scroller" tabindex="0" role="region" aria-label="Galerie foto, rândul 3 — derulează orizontal">
+                <ul class="film__row"></ul>
+            </div>
+        </div>
+    </section>
+    <div class="band band--rule" aria-hidden="true"><span class="band__strip"></span></div>
+
+    <!-- ================= DIN CARTE ================= -->
+    <section class="dishes" data-nav="dark" aria-labelledby="dishes-titlu">
+        <div class="dishes__head">
+            <div>
+                <p class="eyebrow">Din cartea noastră de bucate</p>
+                <h2 class="dishes__title" id="dishes-titlu">Gusturi pe care le recunoști.</h2>
+            </div>
+            <a class="btn--line" href="#meniu"><span>Vezi tot meniul</span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 15 15 3M5.5 3H15v9.5" stroke="currentColor" stroke-width="1.2"/></svg></a>
+        </div>
+        <!-- Photos: assets/dishes/sarmale.jpg, ciorba.jpg, papanasi.jpg -->
+        <ul class="dishes__grid">
+            <li class="dish">
+                <img src="assets/dishes/sarmale.jpg" alt="Sarmale cu mămăligă și smântână" loading="lazy">
+                <h3>Sarmale cu mămăligă</h3>
+                <p>Varză, umplutură bine potrivită și smântână alături.</p>
+            </li>
+            <li class="dish">
+                <img src="assets/dishes/ciorba.jpg" alt="Ciorbă rădăuțeană cu smântână" loading="lazy">
+                <h3>Ciorbă rădăuțeană</h3>
+                <p>Pui, legume, smântână și usturoi, într-o ciorbă ușor acrită, ca în Bucovina.</p>
+            </li>
+            <li class="dish">
+                <img src="assets/dishes/papanasi.jpg" alt="Papanași cu smântână și dulceață de vișine" loading="lazy">
+                <h3>Papanași cu dulceață</h3>
+                <p>Rumeni, pufoși, cu smântână și vișine din belșug.</p>
+            </li>
+        </ul>
+    </section>
+    <div class="band band--rule" aria-hidden="true"><span class="band__strip"></span></div>
+
+    <!-- ================= LA MASĂ ================= -->
+    <section class="section section--menu" id="meniu" data-nav="light" aria-labelledby="meniu-titlu">
+        <h2 class="section__title" id="meniu-titlu">
+            <img class="orn" src="assets/ornament.png" width="48" height="48" alt="">
+            <span>La masă</span>
+            <img class="orn" src="assets/ornament.png" width="48" height="48" alt="">
+        </h2>
+        <div class="menu">
+            <div class="menu__text">
+                <h3 class="menu__title">Meniul nostru<br>se citește<br>ca o poveste.</h3>
+                <p class="lead">
+                    Răsfoiește pagină cu pagină: de la ciorbe și preparatele zilei
+                    până la grătar, pește și deserturi.
+                    Deschide-l și caută exact de ce ți-e pofta.
+                </p>
+                <a class="menu__btn" href="meniu.html">
+                    <span>Deschide cartea de bucate</span>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                        <path d="M3 15 15 3M5.5 3H15v9.5" stroke="currentColor" stroke-width="1.2"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Scoate franjurii albe din PNG: pixelii aproape albi devin transparenți -->
+            <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+                <filter id="no-white" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+                    <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 -25 0 22"/>
+                </filter>
+            </svg>
+            <a class="book" href="meniu.html" aria-label="Deschide cartea de bucate">
+                <img class="book__img" src="assets/carteBucate.png" alt="Coperta cărții de bucate Miorița: MENU" loading="lazy">
+            </a>
+        </div>
+    </section>
+    <div class="band band--rule" aria-hidden="true"><span class="band__strip"></span></div>
+
+    <!-- ================= EVENIMENTE ================= -->
+    <section class="events" id="evenimente" aria-labelledby="evenimente-titlu">
+        <div class="events__img" data-nav="dark">
+            <img src="assets/events.jpg" alt="Masă lungă din lemn, pusă pentru oaspeți, cu pâine, lumânări și flori de câmp" loading="lazy">
+        </div>
+        <div class="events__text" data-nav="light">
+            <p class="eyebrow">Pentru zile de ținut minte</p>
+            <h2 class="events__title" id="evenimente-titlu">Oamenii dragi.<br>La aceeași masă.</h2>
+            <p class="lead">Aniversări, întâlniri de familie sau o masă doar a voastră. Spune-ne ce sărbătorești și gândim împreună detaliile.</p>
+            <a class="btn--line" href="eveniment.html"><span>Povestește-ne despre eveniment</span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 15 15 3M5.5 3H15v9.5" stroke="currentColor" stroke-width="1.2"/></svg></a>
+        </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="section contact" id="contact" data-nav="dark" aria-labelledby="contact-titlu">
+        <div class="band band--rule" aria-hidden="true"><span class="band__strip"></span></div>
+        <div class="contact__inner">
+            <div class="contact__grid">
+                <h2 class="contact__title" id="contact-titlu">Poveștile bune<br>au loc la masă.</h2>
+                <div class="contact__side">
+                    <p>Vino cu ai tăi, cu pofta de bucate românești și cu o poveste de spus. Pentru o masă împreună, hai să vorbim.</p>
+                    <a class="contact__cta" href="tel:+40234510477">
+                        <span>Sună-ne pentru o rezervare</span>
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                            <path d="M3 15 15 3M5.5 3H15v9.5" stroke="currentColor" stroke-width="1.2"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <p class="contact__closing">Să ne fie de bine. Și să ne mai vedem.</p>
+        </div>
+        <div class="band band--rule" aria-hidden="true"><span class="band__strip"></span></div>
+    </section>
+
+</main>
+
+<footer class="footer" id="info" data-nav="light">
+    <div class="footer__grid">
+        <div>
+            <div class="footer__brand">
+                <img class="orn" src="assets/ornament.png" width="48" height="48" alt="">
+                <p class="footer__name">Miorița</p>
+            </div>
+            <p class="footer__phrase">„Pe-un picior de plai, pe-o gură de rai...”</p>
+            <p class="footer__tag">Restaurant moldovenesc · Bacău</p>
+        </div>
+
+        <div>
+            <h3>Contactează-ne</h3>
+            <ul>
+                <li><a href="tel:+40234510477">0234 510 477</a></li>
+                <li>Zilnic, 8:00 – 23:00</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Ne găsești la</h3>
+            <address class="footer__address">
+                Strada Mioriței 3<br>
+                600189 Bacău
+            </address>
+            <a class="footer__more" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant+Miori%C8%9Ba%2C+Strada+Mioriței+3%2C+Bac%C4%83u" target="_blank" rel="noopener">Indicații pe hartă ↗</a>
+        </div>
+
+        <div>
+            <h3>Urmărește-ne pe</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/restaurantmioritabacau/?locale=ro_RO" target="_blank" rel="noopener">Facebook ↗</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer__map">
+        <iframe
+                title="Harta: Restaurant Miorița, Strada Mioriței 3, Bacău"
+                src="https://www.google.com/maps?q=Restaurant+Miori%C8%9Ba%2C+Strada+Mioriței+3%2C+Bac%C4%83u&amp;output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen></iframe>
+    </div>
+
+    <div class="footer__bar">
+        <span>Copyright © Restaurant Miorița 2026. Toate drepturile rezervate.</span>
+        <span class="footer__links">
+            <a href="termeni-si-conditii.html">Termeni și condiții</a>
+            <a href="https://anpc.ro/" target="_blank" rel="noopener">ANPC</a>
+            <a href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&amp;lng=RO" target="_blank" rel="noopener">SOL</a>
+        </span>
+        <a href="#top">La începutul poveștii ↑</a>
+    </div>
+</footer>
+
+</body>
+</html>

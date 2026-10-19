@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Povestește-ne despre eveniment — Miorița</title>
+    <meta name="description" content="Spune-ne ce sărbătorești la Miorița, Bacău, și gândim împreună detaliile.">
+    <link rel="icon" href="assets/ornament.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@400;500&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="form.js" defer></script>
+</head>
+<body>
+
+<header class="nav">
+    <div class="nav__bar">
+        <a class="nav__logo is-ink" href="index.html" aria-label="Miorița — înapoi la site">
+            <img class="logo-img" src="assets/miorita-logo.png" width="2160" height="835" alt="Miorița">
+        </a>
+        <nav aria-label="Navigare principală">
+            <ul class="nav__list is-ink">
+                <li><a href="index.html#galerie">GALERIE</a></li>
+                <li><a href="index.html#meniu">LA MASĂ</a></li>
+                <li><a href="index.html#evenimente">EVENIMENTE</a></li>
+                <li><a href="index.html#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="form-page">
+    <p class="eyebrow">Pentru zile de ținut minte</p>
+    <h1>Povestește-ne despre eveniment.</h1>
+    <p class="lead">Aniversări, întâlniri de familie sau o masă doar a voastră. Completează câteva rânduri, iar noi te sunăm să punem la punct detaliile.</p>
+
+    <!-- Netlify Forms: collected automatically after deploy (Site → Forms) -->
+    <form class="form" id="eveniment" name="eveniment" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="eveniment">
+        <p hidden><label>Nu completa: <input name="bot-field"></label></p>
+
+        <div class="form__row">
+            <label>Nume și prenume *
+                <input type="text" name="nume" autocomplete="name" required>
+            </label>
+            <label>Telefon *
+                <input type="tel" name="telefon" autocomplete="tel" required>
+            </label>
+        </div>
+
+        <div class="form__row">
+            <label>Email
+                <input type="email" name="email" autocomplete="email">
+            </label>
+            <label>Tipul evenimentului *
+                <select name="tip" required>
+                    <option value="" selected disabled>Alege</option>
+                    <option>Aniversare</option>
+                    <option>Întâlnire de familie</option>
+                    <option>Botez</option>
+                    <option>Nuntă sau cununie</option>
+                    <option>Eveniment de firmă</option>
+                    <option>Altceva</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="form__row">
+            <label>Data dorită
+                <input type="date" name="data">
+            </label>
+            <label>Numărul de persoane *
+                <input type="number" name="persoane" min="1" inputmode="numeric" required>
+            </label>
+        </div>
+
+        <label>Spune-ne mai multe
+            <textarea name="detalii" placeholder="Ce sărbătorești, ce bucate ți-ai dori, dacă sunt alergii sau alte dorințe."></textarea>
+        </label>
+
+        <label class="form__consent">
+            <input type="checkbox" name="acord" required>
+            <span>Sunt de acord să fiu contactat(ă) cu privire la această solicitare. *</span>
+        </label>
+
+        <button class="menu__btn" type="submit">
+            <span>Trimite povestea</span>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path d="M3 15 15 3M5.5 3H15v9.5" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
+        </button>
+    </form>
+
+    <p class="form__msg" id="ok" role="status" tabindex="-1" hidden>Mulțumim! Am primit mesajul și te sunăm cât de curând. Să ne fie de bine.</p>
+    <p class="form__msg" id="err" role="alert" hidden>Nu s-a putut trimite acum. Mai încearcă o dată sau sună-ne direct.</p>
+
+    <p class="eyebrow" style="margin-top:2.5rem"><a href="index.html">← Înapoi la site</a></p>
+</main>
+
+</body>
+</html>

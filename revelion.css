@@ -1,0 +1,25 @@
+/* Pagina Revelion 2027 — folosește styles.css (header, benzi, butoane) */
+.rv { display: flex; flex-direction: column; min-height: 100svh; padding-top: var(--nav-h); background: var(--dark); }
+.rv__stage {
+    position: relative;
+    isolation: isolate;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 28rem;
+    padding: clamp(2rem, 6vh, 4.5rem) var(--pad) clamp(1.6rem, 4vh, 3rem);
+    text-align: center;
+    color: var(--cream);
+}
+.rv__bg { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
+.rv__shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(to bottom, rgba(6, 10, 26, .55) 0%, rgba(6, 10, 26, .15) 30%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, .55) 100%); }
+.rv__top, .rv__bottom { display: flex; flex-direction: column; align-items: center; gap: clamp(.5rem, 1.6vh, 1rem); }
+.rv__title { margin: 0; font-size: clamp(2.8rem, 9vw, 7rem); font-weight: 500; line-height: 1; text-shadow: 0 2px 22px rgba(0, 0, 0, .55); }
+.rv__lead { margin: 0; font-size: clamp(1.2rem, 3.2vw, 2.1rem); font-style: italic; text-shadow: 0 2px 14px rgba(0, 0, 0, .7); }
+.rv__date { margin: 0; font-family: var(--sans); font-size: clamp(.7rem, 1.6vw, .85rem); letter-spacing: .12em; text-transform: uppercase; text-shadow: 0 1px 8px rgba(0, 0, 0, .8); }
+.rv__bottom { gap: clamp(1rem, 3vh, 1.6rem); }
+.rv__bottom .hero__cta { padding: 0; }
+.rv__phrase { margin: 0; font-size: clamp(1.05rem, 2.6vw, 1.5rem); font-style: italic; text-shadow: 0 2px 12px rgba(0, 0, 0, .9); }
+.nav__list a[aria-current="page"] { border-bottom-color: currentColor; }

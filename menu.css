@@ -1,0 +1,301 @@
+:root {
+    --ink: #29251d;
+    --wine: #783a2d;
+    --muted: #554a39;
+    --rule: rgba(92, 65, 39, .28);
+    --chapter: "Kings", "Grenze Gotisch", Georgia, serif;   /* chapter titles + running header */
+    --hand: "Caveat", "Segoe Print", cursive;                /* dishes: handwritten */
+    --script: "Great Vibes", "Brush Script MT", cursive;     /* closing page: calligraphy */
+
+    /* Page margins inside the artwork: outer edge (torn paper) and spine side */
+    --in-out: 11%;
+    --in-in: 8.5%;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+
+body.menu-site {
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, #66543b 0%, #382d20 68%, #211b14 100%);
+    color: var(--ink);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+.book-stage { height: 100%; display: grid; place-items: center; padding: 8px; }
+
+/* Perspective lives on the book itself, so the turning leaf really bends in 3D */
+.book {
+    position: relative;
+    width: min(98vw, 1450px, calc((100dvh - 16px) * 1.48));
+    aspect-ratio: 1.48 / 1;
+    max-height: calc(100dvh - 16px);
+    perspective: 2400px;
+    touch-action: pan-y;
+    container-type: inline-size;   /* type sizes below (cqw) follow the size of the book */
+}
+
+.book-pages {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    border-radius: 3px;
+    background: #cbb995 url("assets/menu-book-bg.png") center / 100% 100% no-repeat;
+    box-shadow: 0 15px 24px rgba(0, 0, 0, .4), inset 0 0 0 2px rgba(88, 62, 35, .28);
+    filter: brightness(.91) contrast(1.06);
+}
+
+/* ---------- Page ---------- */
+
+.book-page {
+    position: relative;
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 4.2% var(--in-in) 3.4% var(--in-out);
+    color: var(--ink);
+}
+.right-page { padding-left: var(--in-in); padding-right: var(--in-out); cursor: e-resize; }
+.left-page { cursor: w-resize; }
+.book[data-first] .left-page,
+.book[data-last] .right-page { cursor: default; }
+
+/* Running header. Fixed height, so moving it never pushes the rest of the page */
+.page-head {
+    position: relative;
+    top: 1.3cqw;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    height: clamp(18px, 1.2cqw, 20px);
+    padding-bottom: 2px;
+    border-bottom: 1px solid rgba(91, 59, 40, .55);
+    color: #3a2517;
+    font: 400 clamp(16px, 1.95cqw, 20px)/1 var(--chapter);
+    letter-spacing: .03em;
+    -webkit-text-stroke: .03em currentColor;
+    white-space: nowrap;
+}
+
+.page-title { margin: 6.5% 0 1%; text-align: center; }
+.page-title h2 {
+    margin: 0;
+    color: #6b2f25;
+    font: 400 clamp(30px, 3.3cqw, 62px)/1.05 var(--chapter);
+    letter-spacing: .02em;
+    -webkit-text-stroke: .035em currentColor;   /* faux bold: Kings has a single weight */
+    text-shadow: 0 1px 0 rgba(255, 238, 205, .35);
+}
+
+/* Sticker: transparent PNG laid over the page, no frame, no box */
+.sticker { position: relative; height: 30%; margin: -1.5% 0 1.5%; flex: none; }
+.sticker img {
+    position: absolute;
+    inset: 0;
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    object-position: center center;
+    transform: rotate(var(--r, -1.5deg));
+    transform-origin: center center;
+    filter: drop-shadow(0 3px 5px rgba(60, 38, 18, .3));
+}
+.right-page .sticker img { --r: 1.2deg; }
+
+.dishes {
+    flex: 1;
+    min-height: 0;
+    margin-bottom: 4%;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+.dishes::-webkit-scrollbar { display: none; }
+.no-sticker .dishes { margin-top: 3%; }
+/* pagină de continuare (fără titlu de capitol): lista începe mai jos, sub antet */
+.is-cont .dishes { margin-top: 5.5%; }
+
+.dish { display: flex; align-items: center; gap: .8cqw; padding: .7cqw 0.8cqw .8cqw 0; border-bottom: 1px solid var(--rule); }
+.dish:first-child { padding-top: .4cqw; }
+.dish:last-child { border-bottom: 0; }
+.dish-info { flex: 1; min-width: 0; padding-left: 0.5cqw; }
+.dish h3 { margin: 0; color: #2a1c11; font: 700 clamp(19px, 2.15cqw, 36px)/1.05 var(--hand); }
+.price { flex: none; min-width: 5.6cqw; text-align: right; white-space: nowrap; color: #7a2c20; font: 700 clamp(19px, 2.1cqw, 34px)/1 var(--hand); }
+.description { margin: 2px 0 1px; color: #3a2a1a; font: 600 clamp(15px, 1.6cqw, 27px)/1.15 var(--hand); }
+.meta { margin: 0; color: #55432d; font: 600 clamp(13px, 1.3cqw, 22px)/1.1 var(--hand); }
+/* Sticker decupat, pus peste pagină, în stânga prețului (fără chenar) */
+.dish-sticker { flex: none; width: 8.4cqw; height: 5.6cqw; object-fit: contain; filter: drop-shadow(0 .25cqw .35cqw rgba(60, 38, 18, .35)); transform: rotate(-3deg); }
+.dish:nth-child(even) .dish-sticker { transform: rotate(2.5deg); }
+img.dish-sticker { object-position: center; }
+
+/* ---------- Last page: calligraphy, like a signed note ---------- */
+.closing-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.4cqw;
+    padding-bottom: 8%;
+    text-align: center;
+}
+.closing-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    color: #6b2f25;
+    font: 400 clamp(52px, 9.4cqw, 160px)/.92 var(--script);
+    transform: rotate(-4deg);
+    text-shadow: 0 1px 0 rgba(255, 238, 205, .4);
+}
+.closing-title span:nth-child(2) { margin-left: 22%; }
+.closing-sub {
+    margin: 0;
+    max-width: 88%;
+    color: #46321f;
+    font: 400 clamp(22px, 3.2cqw, 54px)/1.15 var(--script);
+}
+.closing-link {
+    margin-top: 1.4cqw;
+    padding: .1em .5em;
+    color: var(--wine);
+    font: 400 clamp(26px, 3.6cqw, 60px)/1.1 var(--script);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: .18em;
+    transition: color .2s ease, transform .2s ease;
+}
+.closing-link:hover { color: #4d1f17; transform: scale(1.05); }
+
+.flourish { display: block; width: 44%; height: auto; color: var(--wine); opacity: .85; }
+.filler-ornament { flex: 1; display: grid; place-items: center; padding-bottom: 12%; }
+.filler-ornament .flourish { width: 52%; opacity: .5; }
+
+/* hidden page used to measure how many dishes fit */
+.probe { position: absolute; top: 0; left: 0; width: 50%; height: 100%; visibility: hidden; pointer-events: none; z-index: -1; overflow: hidden; }
+
+/* ---------- Turning leaf ---------- */
+
+.flip-sheet {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform-origin: left center;
+    will-change: transform;
+    pointer-events: none;
+    visibility: hidden;
+}
+.flip-sheet.is-flipping { visibility: visible; }
+.flip-sheet.backwards { left: 0; transform-origin: right center; }
+
+.flip-face {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background: #cbb995 url("assets/menu-book-bg.png") center / 200% 100% no-repeat;
+    filter: brightness(.91) contrast(1.06);
+}
+.flip-face::after {          /* soft shading so the leaf looks curved */
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(40, 24, 8, .22), transparent 45%);
+}
+.flip-front { background-position: right center; }
+.flip-back { background-position: left center; transform: rotateY(180deg); }
+.backwards .flip-front { background-position: left center; }
+.backwards .flip-back { background-position: right center; }
+.backwards .flip-face::after { background: linear-gradient(270deg, rgba(40, 24, 8, .22), transparent 45%); }
+.flip-face .book-page { cursor: default; }
+
+.book-spine {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 13px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(77, 50, 27, .02), rgba(73, 48, 27, .23), rgba(255, 241, 208, .25), rgba(75, 47, 25, .13));
+}
+.book-edge {
+    position: absolute;
+    z-index: 3;
+    top: 2%;
+    bottom: 2%;
+    width: 5px;
+    pointer-events: none;
+    background: linear-gradient(90deg, #b18e5b, #e5d0a4, #ad8a59);
+    opacity: .7;
+}
+.book-edge-left { left: 0; }
+.book-edge-right { right: 0; }
+
+/* Button back to the main page: top right of the screen, outside the book */
+.back-link {
+    position: fixed;
+    z-index: 20;
+    top: 14px;
+    right: 16px;
+    padding: 6px 14px;
+    border: 1px solid rgba(233, 214, 178, .55);
+    border-radius: 2px;
+    background: rgba(41, 37, 27, .7);
+    color: #ecdcb8;
+    font: 700 clamp(16px, 1.45vw, 23px)/1.2 var(--hand);
+    text-decoration: none;
+    transition: background-color .2s ease;
+}
+.back-link:hover { background: rgba(41, 37, 27, .95); }
+.back-link:focus-visible { outline: 2px solid #ecdcb8; outline-offset: 2px; }
+
+/* ---------- Phone: one page at a time ---------- */
+
+@media (max-width: 640px) {
+    .book-stage { padding: 6px; }
+    .book {
+        width: min(100%, calc((100dvh - 12px) * .70));
+        aspect-ratio: .70 / 1;
+        max-height: calc(100dvh - 12px);
+        perspective: 1600px;
+    }
+    .book-pages { display: block; }
+    .probe { width: 100%; }
+    .book-page,
+    .right-page { padding: 6% 10% 4%; cursor: default; }
+    .page-head { top: 2.5cqw; height: 22px; font-size: 17px; }
+    .page-title { margin-top: 8%; }
+    .page-title h2 { font-size: clamp(30px, 9.4cqw, 46px); }
+    .sticker { height: 25%; }
+    .dish { padding: 2cqw 3cqw 2cqw 0; gap: 2cqw; }
+    .dish-info { padding-left: 3cqw; }
+    .is-cont .dishes { margin-top: 9%; }
+    .dish-sticker { width: 20cqw; height: 13.5cqw; }
+    .price { min-width: 15cqw; }
+    .dish h3 { font-size: 5.8cqw; }
+    .price { font-size: 5.6cqw; }
+    .description { font-size: 4.6cqw; }
+    .meta { font-size: 3.8cqw; }
+    .closing-title { font-size: 19cqw; }
+    .closing-sub { font-size: 8cqw; }
+    .closing-link { font-size: 9cqw; }
+    .flourish { width: 62%; }
+    .back-link { top: auto; bottom: 10px; right: 50%; transform: translateX(50%); }
+    .book-spine { display: none; }
+    .flip-sheet { left: 0; width: 100%; }
+    .flip-front, .flip-back,
+    .backwards .flip-front, .backwards .flip-back { background-size: 100% 100%; background-position: center; }
+}

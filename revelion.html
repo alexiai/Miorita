@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Revelion 2027 — Miorița · Bacău</title>
+    <meta name="description" content="Revelion 2027 la Miorița, Bacău. În prag de an, în tihnă de poveste.">
+    <meta name="theme-color" content="#0d0a08">
+    <link rel="icon" href="assets/ornament.png" type="image/png">
+    <link rel="preload" as="image" href="assets/miorita-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@400;500&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="revelion.css">
+</head>
+<body>
+
+<a class="skip-link" href="#continut">Treci la conținut</a>
+
+<header class="nav" id="nav">
+    <div class="nav__bar">
+        <a class="nav__logo" href="index.html" aria-label="Miorița — acasă"><img class="logo-img" src="assets/miorita-logo.png" width="2160" height="835" alt="Miorița"></a>
+        <nav aria-label="Navigare principală">
+            <ul class="nav__list" id="nav-list">
+                <li><a href="index.html#galerie">GALERIE</a></li>
+                <li><a href="index.html#meniu">LA MASĂ</a></li>
+                <li><a href="index.html#evenimente">EVENIMENTE</a></li>
+                <li><a href="revelion.html" aria-current="page">REVELION 2027</a></li>
+                <li><a href="index.html#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main id="continut" class="rv">
+    <div class="band band--rule" aria-hidden="true"><span class="band__strip"></span></div>
+
+    <section class="rv__stage" aria-labelledby="rv-titlu">
+        <!-- Fundalul: pune imaginea salvată în assets/revelion.jpg (sau schimbă calea de mai jos) -->
+        <img class="rv__bg" src="assets/rev.png" alt="Casă de lemn sub zăpadă, cu o masă pusă pentru Revelion în fața ei, seara, printre brazi și munți" fetchpriority="high" decoding="async">
+        <div class="rv__shade" aria-hidden="true"></div>
+
+        <div class="rv__top">
+            <p class="tagline">
+                <img class="orn" src="assets/ornament.png" width="48" height="48" alt="">
+                <span>RESTAURANT MIORIȚA · BACĂU</span>
+                <img class="orn" src="assets/ornament.png" width="48" height="48" alt="">
+            </p>
+            <h1 class="rv__title" id="rv-titlu">Revelion 2027</h1>
+            <p class="rv__lead">În prag de an, în tihnă de poveste.</p>
+            <p class="rv__date">31 decembrie 2026</p>
+        </div>
+
+        <div class="rv__bottom">
+            <div class="hero__cta">
+                <a class="hero__btn hero__btn--solid" href="index.html#contact">
+                    <span>Rezervă o masă</span>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 15 15 3M5.5 3H15v9.5" stroke="currentColor" stroke-width="1.2"/></svg>
+                </a>
+            </div>
+            <p class="rv__phrase">Un an nou începe cu oamenii dragi aproape.</p>
+        </div>
+    </section>
+
+    <div class="band band--rule" aria-hidden="true"><span class="band__strip"></span></div>
+</main>
+
+</body>
+</html>
